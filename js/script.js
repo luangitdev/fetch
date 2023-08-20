@@ -6,7 +6,7 @@ function loadPosts(){
             return resultado.json();
         })
         .then(function(json){
-            document.getElementById("posts").innerHTML = json.length+' posts';
+            montarBlog();
         })
         .catch(function(erro){
             document.getElementById("posts").innerHTML = 'Erro na coleta do JSON'
