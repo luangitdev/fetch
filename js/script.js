@@ -1,16 +1,31 @@
-function loadPosts(){
+
+// FORMA DE FAZER SEM ASYNC/AWAIT
+// function loadPosts(){
+//     document.getElementById("posts").innerHTML = 'Carregando....'
+
+//     
+//     fetch('https://jsonplaceholder.typicode.com/posts')
+//         .then(function(resultado){
+//             return resultado.json();
+//         })
+//         .then(function(json){
+//             montarBlog(json);
+//         })
+//         .catch(function(erro){
+//             document.getElementById("posts").innerHTML = 'Erro na coleta do JSON'
+//         });
+
+    
+// }
+
+// FORMA DE FAZER COM O ASYNC/AWAIT
+async function loadPosts(){
     document.getElementById("posts").innerHTML = 'Carregando....'
 
-    fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(function(resultado){
-            return resultado.json();
-        })
-        .then(function(json){
-            montarBlog(json);
-        })
-        .catch(function(erro){
-            document.getElementById("posts").innerHTML = 'Erro na coleta do JSON'
-        });
+    // FORMA DE FAZER COM ASYNC/AWAIT
+    let req = await fetch('https://jsonplaceholder.typicode.com/posts');
+    let json = await req.json();
+    montarBlog(json);
 }
 
 function montarBlog(lista){
