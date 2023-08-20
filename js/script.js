@@ -22,5 +22,5 @@ function montarBlog(lista){
         html += '<hr/>';
     }
 
-    document.getElementById("posts").textContent = html;
+    document.getElementById("posts").innerHTML = html;
 }
