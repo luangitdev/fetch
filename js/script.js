@@ -25,7 +25,11 @@ async function loadPosts(){
     // FORMA DE FAZER COM ASYNC/AWAIT
     let req = await fetch('https://jsonplaceholder.typicode.com/posts');
     let json = await req.json();
-    montarBlog(json);
+    try {
+        montarBlog(json);
+    } catch (error) {
+        document.getElementById("posts").innerHTML = 'Ocorreu um erro na requisição do JSON'
+    }
 }
 
 function montarBlog(lista){
